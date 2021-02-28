@@ -1,0 +1,16 @@
+server.servlet.context-path: "/v1"
+server.port: 8088
+spring:
+  application.name: "kafkaBinderDemo"
+
+  cloud.stream:
+    kafka.binder.brokers: "localhost"
+    kafka.bindings:
+      # for some reason we can't put this in the common library, where the producer lives
+      testOutput.producer.configuration.key.serializer: "org.apache.kafka.common.serialization.StringSerializer"
+    bindings:
+      testOutput:
+        producer.partitionCount: 2
+
+
+

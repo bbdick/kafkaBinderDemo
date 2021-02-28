@@ -1,0 +1,19 @@
+spring:
+  cloud.stream:
+    defaultBinder: scl
+    binders:
+      scl:
+        type: kafka
+        environment.spring.cloud.stream:
+          kafka.binder.brokers: "localhost:9092"
+      scl1:
+        type: kafka
+        environment.spring.cloud.stream:
+          kafka.binder.brokers: "localhost:9092"
+    bindings:
+      testOutput:
+        destination: "testOutputDev"
+        binder: scl1
+    kafka.binder.autoAddPartitions: true
+
+
