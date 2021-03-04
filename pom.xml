@@ -15,7 +15,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR10</spring-cloud.version>
-		<api.service.commons.version>1.8.0</api.service.commons.version>
+		<api.service.commons.version>1.9-SNAPSHOT</api.service.commons.version>
 	</properties>
 	<dependencies>
 		<dependency>

@@ -1,5 +1,10 @@
 server.servlet.context-path: "/v1"
 server.port: 8088
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "auditevents,beans,caches,conditions,configprops,env,health,heapdump,trrptrace,info,integrationgraph,jolokia,logfile,loggers,liquibase,metrics,mappings,prometheus,scheduledtasks,sessions,startup,threaddump"
 spring:
   application.name: "kafkaBinderDemo"
 
