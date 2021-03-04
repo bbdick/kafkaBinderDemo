@@ -1,17 +1,17 @@
 package com.example.kafkaBinderDemo;
 
-import com.charter.scp.scl.api.commons.ApiServiceBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @EnableBinding({MyOutputSource.class, MyInputSource.class})
-//@SpringBootApplication
+@SpringBootApplication
 @Slf4j
-public class KafkaBinderDemoApplication extends ApiServiceBase {
+public class KafkaBinderDemoApplication {
 	private static ConfigurableApplicationContext ctx;
 
 	public static void main(String[] args) {
