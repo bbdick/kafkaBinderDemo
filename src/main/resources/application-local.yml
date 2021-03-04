@@ -14,6 +14,9 @@ spring:
       testOutput:
         destination: "testOutputDev"
         binder: scl1
+      testInput:
+        destination: "testInputDev"
+        group: "demoGroup"
     kafka.binder.autoAddPartitions: true
 
 
