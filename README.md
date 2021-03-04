@@ -3,15 +3,13 @@ This is sample program to demonstrate issues reported in https://github.com/spri
 application shutdown when kakfa binder is configured in application yml. This is a bare bone Kafka publishing Spring application, with one output channel called testOutput.
 
 # To duplicate the issue
-Start up a local kafka broker.  Then build the spring boot application, i.e., mvn package, run the local profile
+Start up a local kafka broker.  Then build the spring boot application, i.e., mvn package, run the default profile
 ```
-java -Dspring.profiles.active=local -jar target/kafkaBinderDemo-0.0.1-SNAPSHOT.jar 
+java -jar target/kafkaBinderDemo-0.0.1-SNAPSHOT.jar 
 ```
-When application finishes start up, then stop the application. Notice this error printed on the console log followed by a stack trace:
+The application fails to startup shortly after creating the binder scl1:
 ```
-Failed to stop bean 'outerContext'
+2021-03-04 16:14:55.614  INFO [kafkaBinderDemo,,,] 24277 --- [           main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: scl1
+2021-03-04 16:14:55.929 ERROR [kafkaBinderDemo,,,] 24277 --- [           main] o.s.boot.SpringApplication               : Application run failed
 ```
-Compare the shutdown log when running the default profile which shuts down cleanly.
-```
-java -Dspring.profiles.active=default -jar target/kafkaBinderDemo-0.0.1-SNAPSHOT.jar 
-```
+Compare ths behavior with another branch demo/nokafkaBinder, and it starts up successfully.
