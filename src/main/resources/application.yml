@@ -7,28 +7,18 @@ management:
     web:
       exposure:
         include: "*"
-#        include: "env,configprops,health,httptrace,loggers,metrics,mappings,prometheus"
         exclude: "shutdown"
 spring:
-  application.name: "kafkaBinderDemo"
   cloud.stream:
-    defaultBinder: scl
-    binders:
-      scl:
-        type: kafka
-        environment.spring.cloud.stream:
-          kafka.binder.brokers: "localhost:9092"
-      scl1:
-        type: kafka
-        environment.spring.cloud.stream:
-          kafka.binder.brokers: "localhost:9092"
+    kafka.binder.brokers: "localhost"
+    kafka.bindings:
+      # for some reason we can't put this in the common library, where the producer lives
+      testOutput.producer.configuration.key.serializer: "org.apache.kafka.common.serialization.StringSerializer"
     bindings:
-      testOutput:
-        destination: "testOutputDev"
-        binder: scl1
       testInput:
-        destination: "testInputDev"
         group: "demoGroup"
-    kafka.binder.autoAddPartitions: true
+      testOutput:
+        producer.partitionCount: 2
+
 
 
