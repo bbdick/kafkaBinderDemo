@@ -13,7 +13,7 @@ spring:
     bindings:
       testOutput:
         destination: "testOutputDev"
-        binder: scl1
+#        binder: scl1
       testInput:
         destination: "testInputDev"
         group: "demoGroup"

@@ -11,6 +11,8 @@ spring:
     bindings:
       testOutput:
         producer.partitionCount: 2
+      testInput:
+        group: "demoGroup"
 
 
 
