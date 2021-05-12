@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/test", produces = MediaType.APPLICATION_JSON_VALUE)
 public class SendMessageController {
 
-    private MyOutputSource kafkaSource;
+//    private MyOutputSource kafkaSource;
     private org.springframework.context.ApplicationContext ctx;
 
     @GetMapping("send")
     public ResponseEntity sendMessage(@RequestParam final String message) {
         final MessageBuilder<MessagePayload> builder = MessageBuilder.withPayload(MessagePayload.builder().message(message).build());
-        kafkaSource.testOutput().send(builder.build());
+//        kafkaSource.testOutput().send(builder.build());
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

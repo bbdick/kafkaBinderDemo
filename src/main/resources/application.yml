@@ -11,14 +11,12 @@ spring:
   cloud.stream:
     kafka.binder.brokers: "localhost"
     kafka.bindings:
-      testInput.consumer.autoCommitOnError: true
-      # for some reason we can't put this in the common library, where the producer lives
-      testOutput.producer.configuration.key.serializer: "org.apache.kafka.common.serialization.StringSerializer"
+      testInput-in-0.consumer.autoCommitOnError: true
     bindings:
-      testOutput:
-        producer.partitionCount: 2
-      testInput:
+      testInput-in-0:
+        destination: testInput
         group: "demoGroup"
 
-
-
+  cloud:
+    function:
+      definition: testInput
